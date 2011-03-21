@@ -1,15 +1,15 @@
 <?php
 
 $plugin_info = array(
-	'pi_name'        => 'Solspace Acronyms Helper',
+	'pi_name'        => 'Acronyms Helper',
 	'pi_version'     => '1.0',
 	'pi_author'      => 'Nathan Pitman',
 	'pi_author_url'  => 'http://ninefour.co.uk/labs',
 	'pi_description' => 'Display an index or list of acronym entries from the Solspace Acronyms Module',
-	'pi_usage'       => Solspace_acronyms::usage()
+	'pi_usage'       => Acronyms_helper::usage()
 );
 
-class Solspace_acronyms {
+class Acronyms_helper {
 
 	// Index tag
 	function index() {
@@ -200,7 +200,7 @@ This plug-in is designed to complement the Solspace Acronym Module by providing 
 
 The plug-in has two tag pair types; 'index' and 'entries'.
 
-{exp:solspace_acronyms:index}
+{exp:acronyms_helper:index}
 
 This tag pair has one parameter:
 
@@ -215,12 +215,12 @@ Example usage:
  
 <ul id="Index">
 	<li><strong>Index:</strong> </li>
-	{exp:solspace_acronyms:index acronym_group_name="Standard"}
+	{exp:acronyms_helper:index acronym_group_name="Standard"}
 	<li><a href="{acronym_letter}" title="{acronym_letter}">{acronym_letter}</a></li>
-	{/exp:solspace_acronyms:index}
+	{/exp:acronyms_helper:index}
 </ul>
 
-{exp:solspace_acronyms:entries}
+{exp:acronyms_helper:entries}
 
 This tag pair has two parameters:
 
@@ -238,11 +238,11 @@ With this tag pair you can also use the {if first_letter} conditional to show th
  
 Example usage:
  
-{exp:solspace_acronyms:entries acronym_group_name="Standard"}
+{exp:acronyms_helper:entries acronym_group_name="Standard"}
 	{if first_letter}<a name="{acronym_letter}"></a><h3>{acronym_letter}</h3>{/if}
 	<h4>{acronym_self}</h4>
 	<p>{acronym_description}</p>
-{/exp:solspace_acronyms:entries}
+{/exp:acronyms_helper:entries}
 
 <?php
 	$buffer = ob_get_contents();
